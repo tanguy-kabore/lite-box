@@ -1,4 +1,4 @@
-import { generateAccessToken, handleResponse } from '../../utils/paypal';
+/* import { generateAccessToken, handleResponse } from '../../utils/paypal';
 
 const captureOrder = async (orderID) => {
     const accessToken = await generateAccessToken();
@@ -31,3 +31,4 @@ export default async (req, res) => {
         res.status(405).end(`Method ${req.method} Not Allowed`);
     }
 };
+ */
