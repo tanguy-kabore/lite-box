@@ -1,0 +1,48 @@
+/* src/components/dashboard/DirectoryItem.module.css */
+.directoryItem {
+    padding-left: 0px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+/*   .header:hover {
+    background-color: #f0f0f0;
+  } */
+
+/*   .icon {
+    margin-right: 10px;
+  } */
+
+.actions {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+}
+
+.input {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.content {
+    padding-left: 20px;
+}
+
+.subdirectories {
+    padding-left: 20px;
+}
+
+.files {
+    padding-left: 40px;
+}
+
+.divButton {
+    padding-top: 10px;
+}

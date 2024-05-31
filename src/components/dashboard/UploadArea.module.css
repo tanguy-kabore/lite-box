@@ -1,0 +1,12 @@
+/* UploadArea.module.css */
+.uploadArea {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.fileInput {
+    display: none;
+}
