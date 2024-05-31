@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Lite-Box
 
-## Getting Started
+Lite-Box est une application basée sur Next.js conçue pour fournir un moyen simple et efficace de gérer et de partager des fichiers en ligne.
 
-First, run the development server:
+## Démarrage
+
+Pour lancer le serveur de développement, exécutez la commande suivante :
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
+# ou
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur pour voir le résultat.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Vous pouvez commencer à modifier la page en modifiant `app/page.js`. La page se met à jour automatiquement lorsque vous modifiez le fichier.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Fonctionnalités
 
-## Learn More
+- Gestion des fichiers : Ajoutez, supprimez et organisez vos fichiers dans des dossiers personnalisés.
+- Téléchargement d'archives : Téléchargez des archives ZIP contenant plusieurs fichiers pour un partage facile.
+- Partage de liens : Obtenez des liens de téléchargement direct pour partager vos fichiers avec d'autres utilisateurs.
 
-To learn more about Next.js, take a look at the following resources:
+## Déploiement sur Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Le moyen le plus simple de déployer votre application Next.js est d'utiliser la [plateforme Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) des créateurs de Next.js.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Consultez notre [documentation de déploiement Next.js](https://nextjs.org/docs/deployment) pour plus de détails.
