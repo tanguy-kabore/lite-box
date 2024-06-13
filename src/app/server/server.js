@@ -1,22 +1,22 @@
-const express = require("express");
+/* const express = require("express");
 const path = require("path");
 require("dotenv/config");
 
 const { PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET, PORT = 8888 } = process.env;
 const base = "https://api-m.sandbox.paypal.com";
-const app = express();
+const app = express(); */
 
 // host static files
-app.use(express.static("client/dist"));
+// app.use(express.static("client/dist"));
 
 // parse post params sent in body in json format
-app.use(express.json());
+// app.use(express.json());
 
 /**
  * Generate an OAuth 2.0 access token for authenticating with PayPal REST APIs.
  * @see https://developer.paypal.com/api/rest/authentication/
  */
-const generateAccessToken = async () => {
+/* const generateAccessToken = async () => {
     try {
         if (!PAYPAL_CLIENT_ID || !PAYPAL_CLIENT_SECRET) {
             throw new Error("MISSING_API_CREDENTIALS");
@@ -41,13 +41,13 @@ const generateAccessToken = async () => {
     } catch (error) {
         console.error("Failed to generate Access Token:", error);
     }
-};
+}; */
 
 /**
  * Create an order to start the transaction.
  * @see https://developer.paypal.com/docs/api/orders/v2/#orders_create
  */
-const createOrder = async (cart) => {
+/* const createOrder = async (cart) => {
     console.log(
         "shopping cart information passed from the frontend createOrder() callback:",
         cart,
@@ -78,13 +78,13 @@ const createOrder = async (cart) => {
     });
 
     return handleResponse(response);
-};
+}; */
 
 /**
  * Capture payment for the created order to complete the transaction.
  * @see https://developer.paypal.com/docs/api/orders/v2/#orders_capture
  */
-const captureOrder = async (orderID) => {
+/* const captureOrder = async (orderID) => {
     const accessToken = await generateAccessToken();
     const fetch = (await import('node-fetch')).default;
     const url = `${base}/v2/checkout/orders/${orderID}/capture`;
@@ -133,13 +133,13 @@ app.post("/api/orders/:orderID/capture", async (req, res) => {
         console.error("Failed to create order:", error);
         res.status(500).json({ error: "Failed to capture order." });
     }
-});
+}); */
 
 // serve index.html
-app.get("/", (req, res) => {
+/* app.get("/", (req, res) => {
     res.sendFile(path.resolve("./client/dist/index.html"));
 });
 
 app.listen(PORT, () => {
     console.log(`Node server listening at http://localhost:${PORT}/`);
-});
+}); */
