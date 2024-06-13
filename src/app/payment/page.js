@@ -7,7 +7,8 @@ const PaymentPage = () => {
   return (
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
       <div>
-        <PayPalButton />
+        <p>Coming soon</p>
+        {/* <PayPalButton /> Uncomment this line to add the PayPal button */}
       </div>
     </div>
   );
