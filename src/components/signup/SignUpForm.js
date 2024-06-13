@@ -17,7 +17,7 @@ const SignUpForm = () => {
     e.preventDefault();
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      await updateProfile(userCredential.user, { displayName: username }); // Enregistrer le nom d'utilisateur
+      await updateProfile(userCredential.user, { displayName: username });
 
       // Créer un dossier racine pour cet utilisateur dans Firestore
       await createRootDirectory(userCredential.user.uid);
@@ -93,9 +93,9 @@ const SignUpForm = () => {
       <GoogleLoginButton
         onClick={handleGoogleSignIn}
       />
-      <FacebookLoginButton
+      {/* <FacebookLoginButton
         onClick={handleFacebookSignIn}
-      />
+      /> */}
     </form>
   );
 };

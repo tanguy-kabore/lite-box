@@ -1,4 +1,4 @@
-/* export const generateAccessToken = async () => {
+export const generateAccessToken = async () => {
     try {
         const { PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET, PAYPAL_BASE_URL } = process.env;
         if (!PAYPAL_CLIENT_ID || !PAYPAL_CLIENT_SECRET) {
@@ -38,4 +38,3 @@ export const handleResponse = async (response) => {
         throw new Error(errorMessage);
     }
 };
- */

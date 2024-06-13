@@ -10,11 +10,17 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyB2Uq4YvWCqOu8oH0_2VkyeE3a5lYObk9s",
+
     authDomain: "lite-box-e4d1b.firebaseapp.com",
+
     projectId: "lite-box-e4d1b",
+
     storageBucket: "lite-box-e4d1b.appspot.com",
+
     messagingSenderId: "1017677752731",
+
     appId: "1:1017677752731:web:245c2f3bbe7f619f25d93e"
+
 };
 
 // Initialize Firebase

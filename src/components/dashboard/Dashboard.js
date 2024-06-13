@@ -58,24 +58,37 @@ const Dashboard = () => {
     };
 
     const handleFileUpload = async (file, directoryId = null) => {
+        // Vérifie si l'espace de stockage utilisé après l'ajout du nouveau fichier dépasse la limite de stockage
         if (storageUsed + file.size / (1024 * 1024) > storageLimit) {
-            alert("Storage limit exceeded. Cannot upload file.");
-            return;
+            alert("Storage limit exceeded. Cannot upload file."); // Affiche une alerte si la limite de stockage est dépassée
+            return; // Arrête l'exécution de la fonction
         }
 
+        // Crée une référence de fichier dans le stockage Firebase pour l'utilisateur actuel
         const fileRef = ref(storage, `users/${user.uid}/files/${file.name}`);
+
+        // Télécharge le fichier dans le stockage Firebase
         await uploadBytes(fileRef, file);
+
+        // Récupère l'URL de téléchargement du fichier téléchargé
         const downloadURL = await getDownloadURL(fileRef);
+
+        // Ajoute un document dans Firestore avec les informations du fichier
         await addDoc(collection(firestore, `users/${user.uid}/files`), {
-            name: file.name,
-            size: file.size,
-            type: file.type,
-            url: downloadURL,
-            directoryId: directoryId,
+            name: file.name, // Nom du fichier
+            size: file.size, // Taille du fichier
+            type: file.type, // Type MIME du fichier
+            url: downloadURL, // URL de téléchargement
+            directoryId: directoryId, // ID du répertoire (peut être null)
         });
+
+        // Rafraîchit la liste des fichiers
         fetchFiles();
+
+        // Recalcule l'espace de stockage utilisé
         calculateStorageUsed();
     };
+
 
     const handleFileDelete = async (fileId, fileName) => {
         const fileRef = ref(storage, `users/${user.uid}/files/${fileName}`);
@@ -189,32 +202,45 @@ const Dashboard = () => {
     };
 
     return (
+        // Conteneur principal du tableau de bord, avec des styles appliqués
         <div className={styles.dashboard}>
+            {/* Titre du tableau de bord */}
             <h1>Dashboard</h1>
+
+            {/* Zone de téléchargement de fichiers, avec un gestionnaire pour le téléchargement des fichiers */}
             <UploadArea onFileUpload={handleFileUpload} />
+
+            {/* Composant affichant l'utilisation du stockage, avec les valeurs de stockage utilisées et la limite de stockage */}
             <StorageUsage storageUsed={storageUsed} storageLimit={storageLimit} />
+
+            {/* Liste des répertoires et des fichiers, avec divers gestionnaires pour les opérations sur les répertoires et les fichiers */}
             <DirectoryList
                 directories={directories}
                 files={files}
-                onCreate={handleDirectoryCreate}
-                onDirectoryDelete={handleDirectoryDelete}
-                onDirectoryDownload={onDirectoryDownload}
-                onDirectoryShare={onDirectoryShare}
-                onDirectoryUpload={handleFileUpload}
-                onFileDelete={handleFileDelete}
-                onDelete={handleFileDelete}
-                onRename={handleDirectoryRename}
+                onCreate={handleDirectoryCreate} // Gestionnaire pour la création de répertoires
+                onDirectoryDelete={handleDirectoryDelete} // Gestionnaire pour la suppression de répertoires
+                onDirectoryDownload={onDirectoryDownload} // Gestionnaire pour le téléchargement de répertoires
+                onDirectoryShare={onDirectoryShare} // Gestionnaire pour le partage de répertoires
+                onDirectoryUpload={handleFileUpload} // Gestionnaire pour le téléchargement de fichiers dans un répertoire
+                onFileDelete={handleFileDelete} // Gestionnaire pour la suppression de fichiers
+                onDelete={handleFileDelete} // Gestionnaire pour la suppression de fichiers (redondant avec onFileDelete)
+                onRename={handleDirectoryRename} // Gestionnaire pour le renommage de répertoires
             />
 
+            {/* Liste des fichiers qui ne sont pas dans un répertoire spécifique */}
             <div className={styles.fileList}>
                 {files
-                    .filter(file => file.directoryId === null)
+                    .filter(file => file.directoryId === null) // Filtre les fichiers qui ne sont pas dans un répertoire
                     .map(file => (
-                        <FileItem key={file.id} file={file} onDelete={() => handleFileDelete(file.id, file.name)} />
+                        // Composant pour chaque fichier, avec un gestionnaire pour la suppression des fichiers
+                        <FileItem
+                            key={file.id}
+                            file={file}
+                            onDelete={() => handleFileDelete(file.id, file.name)}
+                        />
                     ))
                 }
             </div>
-
         </div>
     );
 };

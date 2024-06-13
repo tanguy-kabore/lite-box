@@ -61,43 +61,61 @@ const Profile = () => {
     };
 
     return (
+        // Conteneur principal de la page de profil
         <div>
+            {/* Barre de navigation, avec l'utilisateur et le routeur passés en props */}
             <Navbar user={user} router={router} />
+
+            {/* Conteneur du profil avec des styles appliqués */}
             <div className={styles.profileDiv}>
                 <div className={styles.profileContainer}>
+                    {/* Titre de la section du profil */}
                     <h2 className={styles.profileTitle}>Profile</h2>
+
+                    {/* Formulaire de mise à jour du profil */}
                     <form onSubmit={handleUpdateProfile} className={styles.form}>
+
+                        {/* Conteneur de la photo de profil */}
                         <div className={styles.photoContainer}>
+                            {/* Image de profil, affiche une image par défaut si aucune photoURL n'est disponible */}
                             <img
                                 src={photoURL || "/default-profile.png"}
                                 alt="Profile"
                                 className={styles.profileImage}
-                                onClick={handlePhotoClick}
+                                onClick={handlePhotoClick} // Gestionnaire de clic sur l'image de profil
                             />
+                            {/* Champ de téléchargement de fichier caché */}
                             <input
                                 type="file"
-                                onChange={handleFileChange}
-                                ref={fileInputRef}
-                                style={{ display: "none" }}
+                                onChange={handleFileChange} // Gestionnaire de changement de fichier
+                                ref={fileInputRef} // Référence pour accéder à cet input via un ref React
+                                style={{ display: "none" }} // Cache l'input de fichier
                             />
                         </div>
+
+                        {/* Champ pour modifier le nom d'affichage */}
                         <label className={styles.formLabel}>
                             Display Name:
                             <input
                                 type="text"
-                                value={displayName}
-                                onChange={(e) => setDisplayName(e.target.value)}
+                                value={displayName} // Valeur contrôlée par l'état displayName
+                                onChange={(e) => setDisplayName(e.target.value)} // Met à jour l'état displayName
                                 required
                                 className={styles.formInput}
                             />
                         </label>
+
+                        {/* Affichage des erreurs éventuelles */}
                         {error && <p className={styles.error}>{error}</p>}
+
+                        {/* Bouton pour soumettre le formulaire de mise à jour du profil */}
                         <button type="submit" className={styles.formButton}>Update Profile</button>
                     </form>
                 </div>
             </div>
         </div>
     );
+
 };
 
 export default Profile;

@@ -7,7 +7,7 @@ const PaymentPage = () => {
   return (
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
       <div>
-        {/* <PayPalButton /> */}
+        <PayPalButton />
       </div>
     </div>
   );
