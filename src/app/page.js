@@ -21,7 +21,7 @@ export default function Home() {
 
   // Fonction pour rediriger l'utilisateur vers la page de paiement
   const handlePayment = () => {
-    router.push("/payment");
+    router.push("/");
   };
 
   // Rendre le contenu de la page
@@ -52,7 +52,7 @@ export default function Home() {
           </div>
           {/* Plan premium */}
           <div className={styles.plan}>
-            <h3>Premium Plan</h3>
+            <h3>Premium Plan: Coming soon</h3>
             <p>5000 XOF/month</p>
             <ul>
               <li>1 GB Storage</li>
