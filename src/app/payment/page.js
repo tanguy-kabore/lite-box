@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import PayPalButton from "../../components/paypal/PayPalButton";
+//import PayPalButton from "../../components/paypal/PayPalButton";
 
 const PaymentPage = () => {
   return (
